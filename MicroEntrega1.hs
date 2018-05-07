@@ -1,3 +1,5 @@
+module MicroEntrega1.hs where
+
 data Microprocesador = Microprocesador {memoria :: [Float], acumuladorA :: Float, acumuladorB :: Float, programCounter :: Int, mensajeError :: String} deriving (Show, Eq)
 
 xt8088 = Microprocesador {memoria = replicate 1024 0, acumuladorA = 0, acumuladorB = 0, programCounter = 0, mensajeError = ""}
