@@ -12,11 +12,15 @@ nop microprocesador = microprocesador {programCounter = programCounter microproc
 
 add microprocesador = microprocesador {acumuladorA = acumuladorA microprocesador + acumuladorB microprocesador, acumuladorB = 0,programCounter = programCounter microprocesador + 1}
 
-divide microprocesador | acumuladorB microprocesador == 0 = microprocesador {programCounter = programCounter microprocesador + 1 ,  mensajeError = "DIVISION BY ZERO"} | otherwise = microprocesador { acumuladorA = (acumuladorA microprocesador) / (acumuladorB microprocesador) , acumuladorB = 0, programCounter= programCounter microprocesador + 1}
+dividir dividendo divisor = dividendo / divisor
+
+divide microprocesador | acumuladorB microprocesador == 0 = microprocesador {programCounter = programCounter microprocesador + 1 ,  mensajeError = "DIVISION BY ZERO"} | otherwise = microprocesador { acumuladorA = dividir (acumuladorA microprocesador) (acumuladorB microprocesador) , acumuladorB = 0, programCounter= programCounter microprocesador + 1}
 
 swap microprocesador = microprocesador {acumuladorA = acumuladorB microprocesador, acumuladorB = acumuladorA microprocesador, programCounter = programCounter microprocesador + 1}
 
-lod posicion microprocesador = microprocesador {acumuladorA = ((memoria microprocesador) !! (posicion-1)), programCounter= programCounter microprocesador + 1}
+encontrarDatoEnMemoria posicion microprocesador = ((memoria microprocesador) !! (posicion-1))
+
+lod posicion microprocesador = microprocesador {acumuladorA = encontrarDatoEnMemoria posicion microprocesador, programCounter= programCounter microprocesador + 1}
 
 insertarDatoEnMemoria posicion valor lista = (take (posicion-1) lista) ++ [valor] ++ (drop posicion lista)
 
