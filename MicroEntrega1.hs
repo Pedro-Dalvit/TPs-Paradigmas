@@ -1,4 +1,4 @@
-module MicroEntrega1.hs where
+module MicroEntrega1 where
 
 data Microprocesador = Microprocesador {memoria :: [Float], acumuladorA :: Float, acumuladorB :: Float, programCounter :: Int, mensajeError :: String} deriving (Show, Eq)
 
