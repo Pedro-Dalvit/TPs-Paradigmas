@@ -8,6 +8,8 @@ fp20 = Microprocesador {memoria = replicate 1024 0, acumuladorA = 7, acumuladorB
 
 at8086 = Microprocesador  {memoria = [1..20] , acumuladorA = 0, acumuladorB = 0, programCounter = 0, mensajeError = ""}
 
+largoMemoria microprocesador = length (memoria microprocesador)
+
 nop microprocesador = microprocesador {programCounter = programCounter microprocesador + 1}
 
 add microprocesador = microprocesador {acumuladorA = acumuladorA microprocesador + acumuladorB microprocesador, acumuladorB = 0,programCounter = programCounter microprocesador + 1}
