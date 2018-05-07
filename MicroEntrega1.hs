@@ -41,6 +41,7 @@ str posicion valor microprocesador = microprocesador { memoria = insertarDatoEnM
 lodv :: Float -> Microprocesador -> Microprocesador
 lodv valor microprocesador = microprocesador {acumuladorA = valor, programCounter = programCounter microprocesador + 1}
 
+avanzarPCEn3 :: Microprocesador -> Microprocesador
 avanzarPCEn3 microprocesador = (nop.nop.nop) microprocesador
 
 sumar :: Float -> Float -> Microprocesador -> Microprocesador
