@@ -23,7 +23,7 @@ divide microprocesador | acumuladorB microprocesador == 0 = avanzarPC microproce
 
 swap :: Microprocesador -> Microprocesador
 swap microprocesador = avanzarPC microprocesador {acumuladorA = acumuladorB microprocesador, acumuladorB = acumuladorA microprocesador}
-
+swap1 :: Microprocesador -> Microprocesador
 swap1 (Microprocesador memoria acumuladorA acumuladorB programCounter mensajeError) = avanzarPC (Microprocesador memoria acumuladorB acumuladorA programCounter mensajeError)
 
 encontrarDatoEnMemoria :: Int -> Microprocesador -> Int
